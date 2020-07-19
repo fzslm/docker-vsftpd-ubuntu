@@ -45,12 +45,12 @@ export LOG_FILE=`grep xferlog_file /etc/vsftpd/vsftpd.conf|cut -d= -f2`
 # stdout server info:
 if [ ! $LOG_STDOUT ]; then
 cat << EOB
-	*************************************************
-	*                                               *
-	*    Docker image: fauria/vsftpd                *
-	*    https://github.com/fauria/docker-vsftpd    *
-	*                                               *
-	*************************************************
+	*******************************************************
+	*                                                     *
+	*    Docker image: fauria/vsftpd                      *
+	*    https://github.com/fzslm/docker-vsftpd-ubuntu    *
+	*                                                     *
+	*******************************************************
 
 	SERVER SETTINGS
 	---------------
