@@ -10,7 +10,7 @@ LABEL Description="vsftpd Docker image based on latest Ubuntu LTS. Supports pass
 	Version="1.0"
 
 RUN apt -y update && apt -y upgrade
-RUN apt -y install vsftpd libpam-mysql
+RUN apt -y install vsftpd libpam-mysql iproute2 db-util
 
 RUN usermod -u ${USER_ID} ftp
 RUN groupmod -g ${GROUP_ID} ftp
