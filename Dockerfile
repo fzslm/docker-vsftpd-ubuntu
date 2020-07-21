@@ -12,8 +12,8 @@ LABEL Description="vsftpd Docker image based on latest Ubuntu LTS. Supports pass
 RUN apt -y update && apt -y upgrade
 RUN apt -y install vsftpd libpam-mysql iproute2 db-util
 
-RUN usermod -u ${USER_ID} ftp
-RUN groupmod -g ${GROUP_ID} ftp
+#RUN usermod -u ${USER_ID} ftp
+#RUN groupmod -g ${GROUP_ID} ftp
 
 ENV FTP_USER **String**
 ENV FTP_PASS **Random**
@@ -33,7 +33,9 @@ COPY run-vsftpd.sh /usr/sbin/
 
 RUN chmod +x /usr/sbin/run-vsftpd.sh
 RUN mkdir -p /home/vsftpd/
+RUN mkdir -p /var/run/vsftpd/empty
 RUN chown -R ftp:ftp /home/vsftpd/
+RUN chown -R ftp:ftp /var/run/vsftpd/empty
 
 VOLUME /home/vsftpd
 VOLUME /var/log/vsftpd
